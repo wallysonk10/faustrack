@@ -37,12 +37,26 @@ cards.forEach(card => observer.observe(card));
 // Ano atual no rodapé
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Formulário de contato (envio simulado)
+// Formulário de contato (envio via WhatsApp)
 const form = document.getElementById('contact-form');
 const formMsg = document.getElementById('form-msg');
+const WHATSAPP_NUMBER = '5581993463202';
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    formMsg.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    const text =
+        `Olá, meu nome é ${name}.\n` +
+        `E-mail: ${email}\n\n` +
+        `${message}`;
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank', 'noopener');
+
+    formMsg.textContent = 'Redirecionando para o WhatsApp para finalizar o envio...';
     form.reset();
 });

@@ -283,6 +283,8 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 190px;
+    text-align: center;
 }
 
 .stat__number {
@@ -295,6 +297,13 @@ ul {
     color: rgba(255, 255, 255, 0.55);
     font-size: 0.85rem;
     margin-top: 4px;
+}
+
+.stat__desc {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 8px;
 }
 
 .hero__scroll {
@@ -387,8 +396,13 @@ section {
 }
 
 .card__icon {
-    font-size: 2.2rem;
     margin-bottom: 18px;
+}
+
+.card__icon svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--green);
 }
 
 .card h3 {
